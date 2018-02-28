@@ -1,0 +1,52 @@
+#include<iostream>
+#include<iomanip>
+#include<cmath>
+#include<string>
+using namespace std;
+
+struct enemy
+{
+	string name;
+	int health;
+	int level;
+};
+
+void initEnemy(enemy& Enemy)
+{
+
+	enemy fighter;
+	cout << "Please enter the name for the fighter: ";
+	getline(cin, fighter.name);
+	cout << fighter.name << endl;
+	fighter.health = 100;
+	cout << fighter.health << endl;
+	fighter.level = 2 + rand() % 8 + 1;
+	cout << fighter.level << endl;
+}
+
+void fight(enemy fighter1, enemy fighter2)
+{
+
+	int attack;
+	attack = rand() % 10;
+	cout << endl << endl;
+	cout << attack << endl << endl;
+	cout << fighter1.name << " attacks" << endl;
+	cout << fighter1.name << "does " << attack * fighter1.level << " damage" << endl;
+	cout << fighter2.name << " attacks" << endl;
+	cout << fighter2.name << "does " << attack * fighter2.level << " damage" << endl;
+
+}
+
+int main()
+{
+	srand(time(NULL));
+	cout << "Battle Simulator" << endl;
+	cout << string(55, '_') << endl;
+	enemy fighter1;
+	initEnemy(fighter1);
+	enemy fighter2;
+	initEnemy(fighter2);
+	fight(fighter1, fighter2);
+
+}
